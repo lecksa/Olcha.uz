@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            outline: none;
+            text-decoration: none;
+        }
+
+        .wrap {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            padding: 10px 20px;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #da002b;
+
+            .left {
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+                align-items: center;
+            }
+
+            button {
+                border: 2px solid white;
+                color: #da002b;
+                background-color: white;
+                width: fit-content;
+                height: fit-content;
+                padding: 5px 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 20px;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+
+            a {
+                padding-left: 20px;
+                color: white;
+                font-size: 23px;
+            }
+
+            .a_2 {
+                color: white !important;
+            }
+
+            .button_2 {
+                background-color: #da002b;
+                color: white;
+            }
+
+            .right {
+                display: flex;
+                gap: 20px;
+                justify-content: center;
+                align-items: center;
+
+                a {
+                    font-size: 26px;
+                    font-weight: 600;
+                }
+
+                .lang {
+                    border-inline: 1px solid rgb(189, 104, 104);
+                    padding-inline: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    button {
+                        border: none;
+                        color: rgb(189, 104, 104);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: #da002b;
+                    }
+                }
+            }
+        }
+
+        .menu {
+            background-color: rgb(255, 255, 255);
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 20px;
+            padding-top: 28px;
+            gap: 30px;
+            padding-inline: 20px;
+            transition: all .15s cubic-bezier(.4, 0, .2, 1);
+            box-shadow: 0 8px 8px #0000000f;
+            left: 0;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+
+            a {
+                display: flex;
+                height: 30px;
+                margin-right: 10px;
+            }
+
+
+            button {
+                align-items: center;
+                border: 2px solid #111;
+                border-radius: 12px;
+                color: #111;
+                display: flex;
+                font-size: 18px;
+                font-weight: 500;
+                height: 48px;
+                line-height: 1.33;
+                margin-right: auto;
+                padding: 15px 27px 15px 28px;
+                transition: all .3s ease 0s;
+                cursor: pointer;
+                background: none;
+
+                .lines {
+                    display: flex;
+                    flex-direction: column;
+                    height: 14px;
+                    margin-right: 19px;
+                    position: relative;
+                    width: 20px;
+                    gap: 3px;
+
+                    span {
+                        position: relative;
+                        background-color: #111;
+                        top: 0;
+                        height: 2px;
+                        width: 20px;
+                        border-radius: 2px;
+                    }
+                }
+            }
+
+            .box {
+                background: #f2f2f2;
+                border: 1px solid #f2f2f2;
+                border-radius: 12px;
+                display: flex;
+                padding: 1px;
+                position: relative;
+                width: 100%;
+
+                input {
+                    background-color: transparent;
+                    color: #111;
+                    flex: 1;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 1.5;
+                    min-width: 100px;
+                    padding: 11px 24px;
+                    border: none;
+                }
+
+                button {
+                    align-items: center;
+                    background: #da002b;
+                    border: 1px solid #f2f2f2;
+                    border-radius: 12px;
+                    color: #fff;
+                    display: flex;
+                    font-size: 14px;
+                    font-weight: 500;
+                    justify-content: center;
+                    line-height: 20px;
+                    padding: 10px 24px;
+                    text-align: center;
+                    text-transform: uppercase;
+                }
+            }
+
+            .icons {
+                align-items: flex-start;
+                display: flex;
+
+                a {
+                    display: flex;
+                    flex-direction: column;
+                    margin-right: 32px;
+                    position: relative;
+                    transition: all .3s ease 0s;
+                }
+
+                .image {
+                    align-items: center;
+                    color: #111;
+                    display: flex;
+                    height: 36px;
+                    justify-content: center;
+                    position: relative;
+                    width: 100%;
+                }
+
+                .text {
+                    color: #111;
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 1.43;
+                    transition: all .3s ease 0s;
+                }
+
+                img {
+                    width: 24px;
+                }
+            }
+        }
+
+        .promo {
+            padding: 40px 20px;
+            position: relative;
+            width: 100%;
+
+            .promo_wrap {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+
+                .gallery {
+                    width: 967px;
+                    height: 382px;
+
+                    img {
+                        border-radius: 12px;
+                        overflow: hidden;
+                        height: 100%;
+                        width: 100%;
+                    }
+
+                    button {
+                        background-color: #e8e8e8;
+                        border-radius: 50%;
+                        display: block;
+                        font-size: 0;
+                        height: 10px;
+                        line-height: 0;
+                        transition: all .3s ease 0s;
+                        width: 10px;
+                        cursor: pointer;
+                        border: none;
+                    }
+
+                    .point {
+                        display: flex;
+                        flex-wrap: nowrap;
+                        font-size: 0;
+                        gap: 8px;
+                        justify-content: center;
+                        line-height: 0;
+                        padding-top: 16px;
+                        text-align: center;
+                        align-items: center;
+
+                        :first-child {
+                            background-color: #da002b;
+                        }
+
+                    }
+                }
+
+                .info {
+                    height: 100%;
+                    padding-bottom: 26px;
+                    position: relative;
+                    width: 304px;
+                    border: 3px solid #da002b;
+                    border-radius: 12px;
+
+                    .point {
+                        position: absolute;
+                        left: 125px;
+                        display: flex;
+                        flex-wrap: nowrap;
+                        font-size: 0;
+                        gap: 8px;
+                        justify-content: center;
+                        line-height: 0;
+                        padding-top: 16px;
+                        text-align: center;
+                        align-items: center;
+                        top: 380px;
+
+                        :first-child {
+                            background-color: #da002b;
+                        }
+
+                        button {
+                            background-color: #e8e8e8;
+                            border-radius: 50%;
+                            display: block;
+                            font-size: 0;
+                            height: 10px;
+                            line-height: 0;
+                            transition: all .3s ease 0s;
+                            width: 10px;
+                            cursor: pointer;
+                            border: none;
+                        }
+                    }
+
+                    .gallery {
+                        width: calc(100%);
+                        display: flex;
+                        flex-direction: column;
+                        height: 180px;
+
+                        .box {
+                            position: absolute;
+                            top: 55px;
+                            left: 15px;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 8px;
+                            align-items: center;
+                            font-size: 16px;
+                            font-weight: 500;
+                            z-index: 2;
+                            background: #da002b;
+                            border-radius: 6px;
+                            color: #fff;
+                            height: 24px;
+                            justify-content: center;
+                            padding: 2px 8px;
+                        }
+
+                        img {
+                            align-items: center;
+                            display: flex;
+                            height: 174px;
+                            justify-content: center;
+                            overflow: hidden;
+                            position: relative;
+                            object-fit: contain;
+                        }
+                    }
+
+                    .text_info {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                        padding: 13px 13px 0;
+
+                        a {
+                            color: #111;
+                            font-size: 20px;
+                            font-weight: 500;
+                            margin-right: 40px;
+                        }
+
+                        p {
+                            color: #da002b;
+                            display: flex;
+                            flex-direction: row;
+                            gap: 10px;
+                            font-size: 16px;
+                            font-weight: 600;
+
+                            span {
+                                color: #999;
+                                font-size: 16px;
+                                font-weight: 600;
+                                line-height: 20px;
+                                margin-bottom: 0;
+                                order: 2;
+                                text-decoration-line: line-through;
+                            }
+                        }
+
+                        .pay {
+                            background: #ffd740;
+                            border-radius: 6px;
+                            color: #111;
+                            font-size: 14px;
+                            font-weight: 600;
+                            justify-content: center;
+                            line-height: 16px;
+                            margin-right: auto;
+                            min-height: 24px;
+                            order: 3;
+                            padding: 4px 8px;
+                            white-space: nowrap;
+                        }
+                    }
+
+                    .text {
+                        display: flex;
+                        font-size: 20px;
+                        font-weight: 700;
+                        justify-content: space-between;
+                        line-height: 24px;
+                        margin-bottom: 8px;
+                        padding: 13px 13px 0;
+                        width: 100%;
+
+                        .timer {
+                            display: flex;
+                            height: fit-content;
+
+                            span {
+                                align-items: center;
+                                background: #fff;
+                                border: 1px solid #e8e8e8;
+                                border-radius: 6px;
+                                display: flex;
+                                font-weight: 400;
+                                height: 28px;
+                                justify-content: center;
+                                line-height: 24px;
+                                margin-right: 8px;
+                                padding: 2px;
+                                position: relative;
+                                width: 28px;
+                            }
+
+                            .span::after {
+                                content: ":";
+                                display: block;
+                                height: 100%;
+                                position: absolute;
+                                right: -9px;
+                                top: 0;
+                                width: 8px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .repeat {
+            overflow-x: scroll;
+            position: relative;
+            z-index: 0;
+            padding: 40px 20px;
+
+            ul {
+                backface-visibility: hidden;
+                display: flex;
+                gap: 14px;
+                height: 100%;
+                margin: 0 !important;
+                padding: 0 !important;
+
+                li {
+                    backface-visibility: hidden;
+                    list-style: none !important;
+                    margin: 0;
+                    position: relative;
+                    width: 128px;
+                    align-items: flex-start;
+                    display: flex;
+
+                    a {
+                        align-items: center;
+                        display: flex;
+                        flex-direction: column;
+                        overflow: visible;
+                        transition: .3s cubic-bezier(.4, 0, .2, 1);
+                        width: 128px;
+
+                        .image {
+                            background-color: transparent;
+                            height: 128px;
+                            margin-bottom: 8px;
+                            overflow: visible;
+                            position: relative;
+                            width: 128px;
+
+                            img {
+                                bottom: 0;
+                                display: block;
+                                height: 100%;
+                                left: 50%;
+                                object-fit: contain;
+                                position: absolute;
+                                transform: translate(-50%);
+                                transition: .3s cubic-bezier(.4, 0, .2, 1);
+                                width: 100%;
+                            }
+                        }
+
+                        .text {
+                            color: #111;
+                            font-size: 14px;
+                            font-weight: 700;
+                            height: 60px;
+                            line-height: 1.43;
+                            min-width: 100%;
+                            overflow: hidden;
+                            text-align: center;
+                            transition: .3s cubic-bezier(.4, 0, .2, 1);
+                        }
+                    }
+                }
+            }
+        }
+
+        .last {
+            display: flex;
+            padding: 40px 20px;
+            flex-direction: row;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                border-radius: 15px;
+                overflow: hidden;
+            }
+        }
+
+        .java {
+            display: flex;
+            flex-direction: column;
+            padding: 40px 20px;
+            gap: 10px;
+
+            .image {
+                display: flex;
+                flex-direction: row;
+                gap: 40px;
+                margin-left: 35px;
+
+                .btns {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+
+                    button {
+                        border: none;
+                        background-color: rgba(255, 255, 255, 0);
+                    }
+                }
+
+            }
+            
+            a {
+                color: #1a1a1a;
+                position: relative;
+                top: -25px;
+                font-size: 24px;
+            }
+
+            .text {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding-bottom: 30px;
+
+                p {
+                    color: #000000;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+                    font-size: 24px;
+                    font-weight: 600;
+                }
+
+                .pay {
+                    background: #ffd740;
+                    border-radius: 6px;
+                    color: #111;
+                    font-size: 16px;
+                    font-weight: 500;
+                    justify-content: center;
+                    line-height: 16px;
+                    margin-right: auto;
+                    min-height: 24px;
+                    order: 3;
+                    padding: 4px 8px;
+                    white-space: nowrap;
+                }
+            }
+
+            .shop{
+                display: flex;
+                flex-direction: row;
+                gap: 5px;
+
+                .lit{
+                    width: 40px;
+                    height: 40px;
+                    border: 2px solid black;
+                    padding: 5px;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    background-color: #1a1a1a00;
+                    align-items: center;
+                    display: flex;
+                    justify-content: center;
+                }
+                
+                .big{
+                    border: 2px solid #da002b;
+                    color: #da002b;
+                    padding: 5px 20px;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    background-color: #1a1a1a00;
+                    font-size: 20px;
+                    width: 260px;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="left">
+            <button>0% Рассрочка</button>
+            <button class="button_2">Скидки</button>
+            <button>Розыгрыши</button>
+            <a href="#">Карта сайта</a>
+        </div>
+        <div class="right">
+            <a href="#">+998 (71) 202 202 1</a>
+            <button class="button_2">Продавайте на olcha</button>
+            <div class="lang">
+                <button>Ўзб</button>
+                <button>О'z</button>
+                <button class="a_2">Рус</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="menu">
+        <a href="#">
+            <img src="./logo.png" alt="">
+        </a>
+        <button>
+            <div class="lines">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            Каталог
+        </button>
+        <div class="box">
+            <input placeholder="Поиск по каталогу" type="text">
+            <button>
+                <img src="./search.svg" alt="">
+            </button>
+        </div>
+        <div class="icons">
+            <a href="#">
+                <div class="image">
+                    <img src="./9035174_stats_chart_icon.png" alt="">
+                </div>
+                <div class="text">Сравнение</div>
+            </a>
+            <a href="#">
+                <div class="image">
+                    <img src="./3643770_favorite_heart_like_likes_love_icon.png" alt="">
+                </div>
+                <div class="text">Избранное</div>
+            </a>
+            <a href="#">
+                <div class="image">
+                    <img src="./2205959_cart_bag_internet_shopping_buy_icon.png" alt="">
+                </div>
+                <div class="text">Корзина</div>
+            </a>
+            <a href="#">
+                <div class="image">
+                    <img src="./2519695_avatar_person_user_icon.png" alt="">
+                </div>
+                <div class="text">Войти</div>
+            </a>
+        </div>
+    </div>
+
+    <div class="promo">
+        <div class="promo_wrap">
+            <div class="gallery">
+                <img src="./gallery.jpg" alt="">
+                <div class="point">
+                    <button type="button" role="tab"></button>
+                    <button type="button" role="tab"></button>
+                    <button type="button" role="tab"></button>
+                    <button type="button" role="tab"></button>
+                    <button type="button" role="tab"></button>
+                    <button type="button" role="tab"></button>
+                    <button type="button" role="tab"></button>
+                    <button type="button" role="tab"></button>
+                    <button type="button" role="tab"></button>
+                    <button type="button" role="tab"></button>
+                </div>
+            </div>
+            <div class="info">
+                <div class="text">
+                    Товар дня
+                    <div class="timer">
+                        <span class="span">12</span>
+                        <span class="span">00</span>
+                        <span>56</span>
+                    </div>
+                </div>
+                <div class="gallery">
+                    <div class="box">-9%</div>
+                    <div class="image">
+                        <img src="./ofisnoe-kreslo-dafna-d68-1-h-leo-22064-0.jpg" alt="">
+                    </div>
+                </div>
+                <div class="text_info">
+                    <a href="#">Кресло руководительское Leo Chrome D68-1-H</a>
+                    <p>
+                        1 138 410 сум
+                        <span>1 251 000 сум</span>
+                    </p>
+                    <div class="pay">148 000 сум x 12 мес</div>
+                </div>
+                <div class="point">
+                    <button type="button" role="tab"></button>
+                    <button type="button" role="tab"></button>
+                    <button type="button" role="tab"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="repeat">
+        <ul style="transform: translateX(0px);">
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="image">
+                        <img src="./8NL2Zg7y6zcsvHWY3UC6t10WcEt0XtXrCCemBSNYrkgewgCDpJFSnmKyQwxh.png" alt="">
+                    </div>
+                    <div class="text">Телевизоры, фото-видео и аудио</div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="last">
+        <img src="./img.png" alt="">
+        <img src="./img.png" alt="">
+        <img src="./img.png" alt="">
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
